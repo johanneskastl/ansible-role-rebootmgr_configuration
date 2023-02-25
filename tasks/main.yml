@@ -1,0 +1,21 @@
+---
+# rebootmgr_configuration/tasks/main.yml
+
+- name: 'Create /etc/rebootmgr.conf'
+  ansible.builtin.template:
+    src: 'rebootmgr.conf.j2'
+    dest: '/etc/rebootmgr.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify:
+    - 'Restart the rebootmgr service'
+
+- name: 'Start and enable the rebootmgr service'
+  ansible.builtin.service:
+    name: 'rebootmgr'
+    state: 'started'
+    enabled: true
+
+- name: 'Flush handlers'
+  ansible.builtin.meta: flush_handlers
