@@ -1,0 +1,7 @@
+---
+# rebootmgr_configuration/handlers/main.yml
+
+- name: 'Restart the rebootmgr service'
+  ansible.builtin.service:
+    name: 'rebootmgr'
+    state: 'restarted'
