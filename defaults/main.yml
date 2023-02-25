@@ -1,0 +1,6 @@
+---
+# rebootmgr_configuration/defaults/main.yml
+
+rebootmgr_window_start: '03:30'
+rebootmgr_window_duration: '1h30m'
+rebootmgr_window_strategy: 'best-effort'
